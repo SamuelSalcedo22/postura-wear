@@ -195,7 +195,7 @@
 
     <!-- Session in progress (home) -->
     <string name="home_session_running_title">Session in progress</string>
-    <string name="home_session_running_body">I'm keeping an eye on your posture.</string>
+    <string name="home_session_running_body">I\'m keeping an eye on your posture.</string>
     <string name="action_view_session">View session</string>
     <string name="session_details_heading">Your session</string>
 
