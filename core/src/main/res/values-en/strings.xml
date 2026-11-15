@@ -38,7 +38,7 @@
     <string name="session_mode_title">What are you up to?</string>
     <string name="session_mode_study">Study</string>
     <string name="session_mode_work">Work</string>
-    <string name="session_mode_study_hint">Reading, homework, classes</string>
+    <string name="session_mode_study_hint">Reading, homework</string>
     <string name="session_mode_work_hint">Desk, computer</string>
 
     <!-- Session: posture states -->

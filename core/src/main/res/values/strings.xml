@@ -44,7 +44,7 @@
     <string name="session_mode_title">¿Qué vas a hacer?</string>
     <string name="session_mode_study">Estudio</string>
     <string name="session_mode_work">Trabajo</string>
-    <string name="session_mode_study_hint">Lectura, tareas, clases</string>
+    <string name="session_mode_study_hint">Lectura y tareas</string>
     <string name="session_mode_work_hint">Escritorio, computador</string>
 
     <!-- Sesión: estados de postura -->
