@@ -10,6 +10,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.posturawear.core.R
+import androidx.compose.ui.platform.LocalConfiguration
+import com.posturawear.core.domain.model.AppLanguage
 import com.posturawear.core.domain.model.SimScenario
 import com.posturawear.core.state.BackendStatus
 import com.posturawear.core.state.PosturaEngine
@@ -60,6 +62,17 @@ fun TestPanel(engine: PosturaEngine, modifier: Modifier = Modifier) {
                 stacked = true,
             )
         }
+
+        SectionLabel(stringResource(R.string.settings_section_language))
+        ChoiceGroup(
+            options = listOf(
+                AppLanguage.ES to stringResource(R.string.language_es),
+                AppLanguage.EN to stringResource(R.string.language_en),
+            ),
+            selected = settings.language.takeIf { it != AppLanguage.SYSTEM }
+                ?: if (LocalConfiguration.current.locales[0].language == "en") AppLanguage.EN else AppLanguage.ES,
+            onSelect = { language -> engine.updateSettings { it.copy(language = language) } },
+        )
 
         SectionLabel(stringResource(R.string.phone_section_backend))
         val (statusText, statusTone) = when (backend) {

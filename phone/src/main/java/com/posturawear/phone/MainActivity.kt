@@ -12,7 +12,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.posturawear.core.ui.LocalizedContent
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import com.posturawear.core.R
@@ -35,6 +38,8 @@ class MainActivity : ComponentActivity() {
         val engine = AppContainer.get(this).engine
         val version = versionName()
         setContent {
+            val language by engine.language.collectAsStateWithLifecycle()
+            LocalizedContent(language) {
             PosturaTheme {
                 Column(
                     modifier = Modifier
@@ -53,6 +58,7 @@ class MainActivity : ComponentActivity() {
                     }
                     TestPanel(engine)
                 }
+            }
             }
         }
     }
