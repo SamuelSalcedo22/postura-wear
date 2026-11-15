@@ -1,0 +1,7 @@
+fastapi>=0.115
+uvicorn[standard]>=0.30
+pydantic>=2.7
+google-genai>=1.0
+google-cloud-aiplatform>=1.70
+scikit-learn>=1.5
+joblib>=1.4
