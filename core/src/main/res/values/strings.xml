@@ -205,4 +205,17 @@
     <string name="phone_backend_down">Sin conexión</string>
     <string name="phone_backend_check">Comprobar conexión</string>
     <string name="phone_test_vibration">Probar vibración</string>
+
+    <!-- Sesión en curso (pantalla principal) -->
+    <string name="home_session_running_title">Sesión en curso</string>
+    <string name="home_session_running_body">Sigo atento a tu postura.</string>
+    <string name="action_view_session">Ver sesión</string>
+    <string name="session_details_heading">Tu sesión</string>
+
+    <!-- Formatos de cifras -->
+    <string name="percent_value">%1$d%%</string>
+    <string name="value_none" translatable="false">–</string>
+    <string name="duration_seconds">%1$d s</string>
+    <string name="duration_minutes">%1$d min</string>
+    <string name="duration_hours_minutes">%1$d h %2$d min</string>
 </resources>

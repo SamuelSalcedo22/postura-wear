@@ -192,4 +192,16 @@
     <string name="phone_backend_down">Offline</string>
     <string name="phone_backend_check">Check connection</string>
     <string name="phone_test_vibration">Test vibration</string>
+
+    <!-- Session in progress (home) -->
+    <string name="home_session_running_title">Session in progress</string>
+    <string name="home_session_running_body">I'm keeping an eye on your posture.</string>
+    <string name="action_view_session">View session</string>
+    <string name="session_details_heading">Your session</string>
+
+    <!-- Number formats -->
+    <string name="percent_value">%1$d%%</string>
+    <string name="duration_seconds">%1$d s</string>
+    <string name="duration_minutes">%1$d min</string>
+    <string name="duration_hours_minutes">%1$d h %2$d min</string>
 </resources>
