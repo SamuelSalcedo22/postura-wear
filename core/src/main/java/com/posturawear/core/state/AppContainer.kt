@@ -9,6 +9,10 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 
+/** Versión visible de la app que contiene este contexto (reloj o celular). */
+fun Context.versionName(): String =
+    packageManager.getPackageInfo(packageName, 0).versionName.orEmpty()
+
 /**
  * Composición manual de dependencias. Un único motor por proceso, compartido
  * por la app del reloj y la de pruebas del celular.
