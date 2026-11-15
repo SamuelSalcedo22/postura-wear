@@ -11,6 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import com.posturawear.core.R
+import com.posturawear.core.domain.model.AppLanguage
 import com.posturawear.core.domain.model.Sensitivity
 import com.posturawear.core.domain.model.Settings
 import com.posturawear.core.domain.model.SimScenario
@@ -147,6 +148,21 @@ fun SettingsPage(
                     stacked = true,
                 )
             }
+        }
+
+        // --- Idioma ---
+        item { SectionLabel(stringResource(R.string.settings_section_language)) }
+        item {
+            ChoiceGroup(
+                options = listOf(
+                    AppLanguage.SYSTEM to stringResource(R.string.settings_language_system),
+                    AppLanguage.ES to stringResource(R.string.language_es),
+                    AppLanguage.EN to stringResource(R.string.language_en),
+                ),
+                selected = settings.language,
+                onSelect = { value -> onChange { it.copy(language = value) } },
+                stacked = true,
+            )
         }
 
         // --- Datos ---
