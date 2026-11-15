@@ -1,0 +1,8 @@
+# Lo que NO se sube a Cloud Build. A diferencia de .gitignore, aquí el modelo
+# entrenado (model/posture.joblib) sí se incluye para que el servicio lo use.
+.venv/
+__pycache__/
+.pytest_cache/
+tests/
+.env
+.env.*
