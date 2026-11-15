@@ -41,6 +41,8 @@ Cada error tiene tres cadenas (`_what`, `_why`, `_next`) y se muestra con la mol
 ### Internacionalización
 
 - Español por defecto e inglés incluido; cifras y fechas con formato del sistema.
+- La app sigue el idioma del dispositivo y además permite elegir **Español** o
+  **English** en Ajustes; el cambio se aplica al instante (`ui/LocalizedContent.kt`).
 - Ningún botón tiene ancho fijo: `PosturaButton` ocupa el ancho disponible, pasa a
   dos líneas y solo entonces trunca. Las filas y etiquetas hacen lo mismo.
 - Los plurales usan `plurals` ("1 aviso", "2 avisos").
