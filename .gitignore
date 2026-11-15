@@ -56,6 +56,3 @@ gcloud/
 ml/data/generated/
 ml/artifacts/
 backend/model/*.joblib
-
-# --- Configuración local de herramientas ---
-.claude/settings.local.json
