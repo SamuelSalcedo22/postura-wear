@@ -1,6 +1,7 @@
 package com.posturawear.core.domain
 
 import com.posturawear.core.domain.model.Orientation
+import kotlinx.serialization.Serializable
 import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.sqrt
@@ -12,6 +13,7 @@ import kotlin.math.sqrt
  *
  * Es inmutable: [learn] devuelve un modelo nuevo, lo que facilita guardarlo y probarlo.
  */
+@Serializable
 data class HabitModel(
     val windows: Int = 0,
     val meanPitch: Float = 0f,

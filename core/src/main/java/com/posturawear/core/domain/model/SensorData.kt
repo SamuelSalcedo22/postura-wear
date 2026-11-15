@@ -1,5 +1,7 @@
 package com.posturawear.core.domain.model
 
+import kotlinx.serialization.Serializable
+
 /**
  * Una lectura combinada de acelerómetro (m/s²) y giroscopio (rad/s).
  * [timestampMs] es un reloj monótono; solo importa la diferencia entre muestras.
@@ -21,6 +23,7 @@ data class SensorWindow(val samples: List<SensorSample>) {
 }
 
 /** Orientación del dispositivo respecto a la gravedad, en grados. */
+@Serializable
 data class Orientation(val pitchDeg: Float, val rollDeg: Float) {
     /** Diferencia angular con [other], cada eje normalizado a [-180, 180]. */
     operator fun minus(other: Orientation) = Orientation(

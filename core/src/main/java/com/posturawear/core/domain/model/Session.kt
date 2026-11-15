@@ -1,10 +1,12 @@
 package com.posturawear.core.domain.model
 
+import kotlinx.serialization.Serializable
 import kotlin.math.roundToInt
 
 enum class SessionMode { STUDY, WORK }
 
 /** Sesión terminada, tal como se guarda en el historial. */
+@Serializable
 data class SessionRecord(
     val id: Long,
     val mode: SessionMode,

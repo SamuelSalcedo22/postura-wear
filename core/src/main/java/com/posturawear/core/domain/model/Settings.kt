@@ -1,5 +1,7 @@
 package com.posturawear.core.domain.model
 
+import kotlinx.serialization.Serializable
+
 /** Qué tan pronto se considera inclinación. A mayor sensibilidad, menor umbral. */
 enum class Sensitivity(val tiltThresholdDeg: Float) {
     LOW(26f),
@@ -11,6 +13,7 @@ enum class Sensitivity(val tiltThresholdDeg: Float) {
 enum class SimScenario { GOOD, BAD, MIXED }
 
 /** Configuración personal del usuario. */
+@Serializable
 data class Settings(
     val vibrationEnabled: Boolean = true,
     val sensitivity: Sensitivity = Sensitivity.MEDIUM,

@@ -1,5 +1,7 @@
 package com.posturawear.core.domain.model
 
+import kotlinx.serialization.Serializable
+
 /**
  * Categorías de postura/movimiento que reconoce el prototipo.
  * Son patrones de orientación del dispositivo, no un diagnóstico: por eso la
@@ -32,4 +34,5 @@ data class Detection(
 )
 
 /** Postura de referencia que el usuario guarda al calibrar. */
+@Serializable
 data class Calibration(val baseline: Orientation, val createdAtEpochMs: Long)
