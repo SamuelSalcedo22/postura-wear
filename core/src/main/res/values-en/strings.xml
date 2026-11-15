@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Brand -->
+    <string name="app_name">Postura</string>
+    <string name="app_full_name">Posture Coach</string>
+    <string name="disclaimer_short">Experimental prototype. Not a medical diagnosis.</string>
+    <string name="disclaimer_long">Experimental ergonomics prototype. It offers general recommendations and does not replace advice from a health professional.</string>
+
+    <!-- Navigation -->
+    <string name="nav_session">Session</string>
+    <string name="nav_stats">Stats</string>
+    <string name="nav_calibration">Calibration</string>
+    <string name="nav_settings">Settings</string>
+
+    <!-- Common actions -->
+    <string name="action_start_session">Start session</string>
+    <string name="action_pause">Pause</string>
+    <string name="action_resume">Resume</string>
+    <string name="action_finish">Finish</string>
+    <string name="action_done">Done</string>
+    <string name="action_back">Back</string>
+    <string name="action_retry">Try again</string>
+
+    <!-- Home -->
+    <string name="home_ready_title">Ready when you are</string>
+    <string name="home_ready_body">Start a session and I\'ll nudge you with a gentle vibration.</string>
+    <string name="home_needs_calibration_title">First, your reference</string>
+    <string name="home_needs_calibration_body">Calibrate once so I can recognize your posture.</string>
+    <string name="home_action_calibrate">Calibrate</string>
+    <string name="home_last_session">Last session: %1$d%% aligned</string>
+    <string name="home_stats_secondary_empty">No sessions yet</string>
+    <string name="home_calibration_secondary_done">Reference saved</string>
+    <string name="home_calibration_secondary_pending">Pending</string>
+    <string name="home_settings_secondary">Vibration and sensitivity</string>
+
+    <!-- Session: mode -->
+    <string name="session_mode_title">What are you up to?</string>
+    <string name="session_mode_study">Study</string>
+    <string name="session_mode_work">Work</string>
+    <string name="session_mode_study_hint">Reading, homework, classes</string>
+    <string name="session_mode_work_hint">Desk, computer</string>
+
+    <!-- Session: posture states -->
+    <string name="posture_aligned">Aligned posture</string>
+    <string name="posture_forward">Possible poor posture</string>
+    <string name="posture_side">Possible poor posture</string>
+    <string name="posture_moving">Moving</string>
+    <string name="posture_unknown">Analyzing…</string>
+    <string name="posture_paused">Session paused</string>
+    <string name="posture_forward_detail">Leaning forward</string>
+    <string name="posture_side_detail">Leaning sideways</string>
+    <string name="posture_unusual_detail">Different from your usual pattern</string>
+
+    <!-- Session: hints -->
+    <string name="hint_aligned">You\'re doing great, keep it up.</string>
+    <string name="hint_forward">Gently straighten your back and relax your shoulders.</string>
+    <string name="hint_side">Ease back to the center.</string>
+    <string name="hint_moving">I\'ll check again once you settle.</string>
+    <string name="hint_unknown">Give me a few seconds.</string>
+    <string name="hint_paused">Pick it up whenever you like.</string>
+
+    <string name="session_elapsed_label">Time</string>
+    <string name="session_aligned_label">Aligned</string>
+    <plurals name="session_alert_count" tools:ignore="MissingQuantity">
+        <item quantity="one">%1$d nudge</item>
+        <item quantity="other">%1$d nudges</item>
+    </plurals>
+
+    <!-- Detection source -->
+    <string name="source_cloud">Cloud AI</string>
+    <string name="source_local">Basic detection</string>
+    <string name="source_simulated">Simulated data</string>
+
+    <!-- Session summary -->
+    <string name="summary_title_great">Great session!</string>
+    <string name="summary_title_good">Nice progress</string>
+    <string name="summary_title_keep">Every session counts</string>
+    <string name="summary_aligned_percent">%1$d%% of the time with aligned posture</string>
+    <string name="summary_duration_label">Duration</string>
+    <string name="summary_alerts_label">Nudges</string>
+    <string name="summary_tip_heading">General recommendation</string>
+    <string name="summary_tip_loading">Preparing your summary…</string>
+    <string name="summary_too_short">That was a very short session, so I didn\'t save it to your stats.</string>
+
+    <string-array name="local_tips">
+        <item>Every 30 minutes, stand up and stretch your neck and shoulders.</item>
+        <item>Place your screen at eye level so you don\'t tilt your head.</item>
+        <item>Rest your feet on the floor and your back against the chair.</item>
+        <item>Take three deep breaths and let your shoulders drop.</item>
+    </string-array>
+
+    <!-- Stats -->
+    <string name="stats_period">Last 7 days</string>
+    <string name="stats_aligned_average">Average aligned</string>
+    <string name="stats_sessions_label">Sessions</string>
+    <string name="stats_alerts_label">Nudges</string>
+    <string name="stats_time_label">Total time</string>
+    <string name="stats_filter_all">All</string>
+    <string name="stats_filter_study">Study</string>
+    <string name="stats_filter_work">Work</string>
+    <string name="stats_empty_title">No sessions yet</string>
+    <string name="stats_empty_body">Complete your first session and your progress will show up here.</string>
+    <string name="stats_empty_filter_body">No sessions of this kind in the last 7 days.</string>
+    <string name="stats_habit_heading">Your usual pattern</string>
+    <string name="stats_habit_learning">Learning how you usually sit: %1$d of %2$d min.</string>
+    <string name="stats_habit_ready">I know your usual pattern now and I\'ll nudge you if you drift from it.</string>
+    <string name="stats_chart_description">Percentage of aligned time per day</string>
+    <string-array name="weekday_initials">
+        <item>M</item>
+        <item>T</item>
+        <item>W</item>
+        <item>T</item>
+        <item>F</item>
+        <item>S</item>
+        <item>S</item>
+    </string-array>
+
+    <!-- Calibration -->
+    <string name="calibration_intro_title">Your reference posture</string>
+    <string name="calibration_intro_body">Sit with your back straight and rest your arm the way you usually work.</string>
+    <string name="calibration_action_start">Calibrate now</string>
+    <string name="calibration_action_repeat">Calibrate again</string>
+    <string name="calibration_running_title">Hold still</string>
+    <string name="calibration_running_remaining">%1$d s left</string>
+    <string name="calibration_success_title">Calibration ready!</string>
+    <string name="calibration_success_body">I\'ll use this position as your reference.</string>
+    <string name="calibration_status_done">Calibrated on %1$s</string>
+    <string name="calibration_status_pending">Not calibrated</string>
+
+    <!-- Settings -->
+    <string name="settings_section_alerts">Nudges</string>
+    <string name="settings_vibration">Vibration</string>
+    <string name="settings_vibration_hint">When possible poor posture is detected</string>
+    <string name="settings_sensitivity">Sensitivity</string>
+    <string name="settings_sensitivity_low">Low</string>
+    <string name="settings_sensitivity_medium">Medium</string>
+    <string name="settings_sensitivity_high">High</string>
+    <string name="settings_alert_delay">Nudge after</string>
+    <string name="settings_alert_delay_value">%1$d s</string>
+    <string name="settings_section_patterns">Patterns that nudge</string>
+    <string name="settings_pattern_forward">Leaning forward</string>
+    <string name="settings_pattern_side">Leaning sideways</string>
+    <string name="settings_pattern_unusual">Outside your usual pattern</string>
+    <string name="settings_section_analysis">Analysis</string>
+    <string name="settings_cloud">Cloud analysis</string>
+    <string name="settings_cloud_hint">Classifies your posture with AI</string>
+    <string name="settings_simulator">Sensor simulator</string>
+    <string name="settings_simulator_hint">Test data without hardware</string>
+    <string name="settings_scenario">Simulated scenario</string>
+    <string name="settings_scenario_good">Good posture</string>
+    <string name="settings_scenario_bad">Poor posture</string>
+    <string name="settings_scenario_mixed">Mixed</string>
+    <string name="settings_section_data">Data</string>
+    <string name="settings_clear_history">Clear history</string>
+    <string name="settings_clear_history_confirm">Tap again to clear</string>
+    <string name="settings_clear_history_done">History cleared</string>
+    <string name="settings_section_about">About</string>
+    <string name="settings_version">Version %1$s</string>
+
+    <!-- Three-part errors: what happened, why (only if useful), what to do now. -->
+    <string name="error_offline_what">I couldn\'t reach the cloud analysis.</string>
+    <string name="error_offline_why">There may be no internet right now.</string>
+    <string name="error_offline_next">Your session continues with the watch\'s basic detection.</string>
+
+    <string name="error_calibration_moving_what">I couldn\'t save your reference posture.</string>
+    <string name="error_calibration_moving_why">I noticed a lot of movement while calibrating.</string>
+    <string name="error_calibration_moving_next">Stay still for a few seconds and try again.</string>
+
+    <string name="error_sensors_what">I can\'t find the motion sensors.</string>
+    <string name="error_sensors_why">This device doesn\'t share them with the app.</string>
+    <string name="error_sensors_next">Turn on the simulator in Settings to keep testing.</string>
+
+    <string name="error_summary_what">I couldn\'t prepare your personalized recommendation.</string>
+    <string name="error_summary_next">Here\'s a general recommendation in the meantime.</string>
+
+    <!-- Accessibility -->
+    <string name="a11y_dial">Alignment indicator: %1$s</string>
+    <string name="a11y_toggle_on">On</string>
+    <string name="a11y_toggle_off">Off</string>
+
+    <!-- Phone test app -->
+    <string name="phone_title">Test panel</string>
+    <string name="phone_subtitle">This is how it looks and behaves on the watch.</string>
+    <string name="phone_section_source">Data source</string>
+    <string name="phone_source_device">Phone sensors</string>
+    <string name="phone_source_simulator">Simulator</string>
+    <string name="phone_section_scenario">Simulated scenario</string>
+    <string name="phone_section_backend">Cloud analysis</string>
+    <string name="phone_backend_unknown">Not checked</string>
+    <string name="phone_backend_ok">Connected</string>
+    <string name="phone_backend_down">Offline</string>
+    <string name="phone_backend_check">Check connection</string>
+    <string name="phone_test_vibration">Test vibration</string>
+</resources>
