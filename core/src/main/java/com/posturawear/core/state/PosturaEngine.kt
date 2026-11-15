@@ -6,6 +6,7 @@ import com.posturawear.core.domain.Calibrator
 import com.posturawear.core.domain.HabitModel
 import com.posturawear.core.domain.HybridPostureDetector
 import com.posturawear.core.domain.SessionTracker
+import com.posturawear.core.domain.model.AppLanguage
 import com.posturawear.core.domain.model.PostureClass
 import com.posturawear.core.domain.model.SensorSample
 import com.posturawear.core.domain.model.SensorWindow
@@ -28,6 +29,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.isActive
@@ -50,6 +52,10 @@ class PosturaEngine(
 ) {
     /** `null` mientras se lee lo guardado. */
     val data: StateFlow<AppData?> = store.data.stateIn(scope, SharingStarted.Eagerly, null)
+
+    /** Idioma elegido; cambia la interfaz al instante, sin reiniciar la app. */
+    val language: StateFlow<AppLanguage> =
+        store.data.map { it.settings.language }.stateIn(scope, SharingStarted.Eagerly, AppLanguage.SYSTEM)
 
     private val _session = MutableStateFlow<SessionState?>(null)
     val session: StateFlow<SessionState?> = _session.asStateFlow()
@@ -213,7 +219,7 @@ class PosturaEngine(
                     durationSeconds = record.durationMs / 1000,
                     alignedPercent = record.alignedPercent,
                     alerts = record.alerts,
-                    language = Locale.getDefault().language,
+                    language = settings.language.tag ?: Locale.getDefault().language,
                 ),
             )
             if (response.text.isBlank()) TipState.Local(localIndex, failed = true) else TipState.Cloud(response.text.trim())

@@ -2,6 +2,7 @@ package com.posturawear.core.ui.pages
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.stringResource
 import com.posturawear.core.R
 import com.posturawear.core.domain.model.Calibration
@@ -57,8 +58,9 @@ fun CalibrationPage(
                 val status = if (calibration == null) {
                     stringResource(R.string.calibration_status_pending)
                 } else {
-                    val date = remember(calibration.createdAtEpochMs) {
-                        DateFormat.getDateInstance(DateFormat.MEDIUM).format(Date(calibration.createdAtEpochMs))
+                    val locale = LocalConfiguration.current.locales[0]
+                    val date = remember(calibration.createdAtEpochMs, locale) {
+                        DateFormat.getDateInstance(DateFormat.MEDIUM, locale).format(Date(calibration.createdAtEpochMs))
                     }
                     stringResource(R.string.calibration_status_done, date)
                 }

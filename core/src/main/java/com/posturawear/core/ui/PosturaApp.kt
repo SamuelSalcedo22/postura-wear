@@ -13,6 +13,7 @@ import androidx.wear.compose.navigation.SwipeDismissableNavHost
 import androidx.wear.compose.navigation.composable
 import androidx.wear.compose.navigation.rememberSwipeDismissableNavController
 import com.posturawear.core.state.PosturaEngine
+import com.posturawear.core.domain.model.AppLanguage
 import com.posturawear.core.tokens.theme.PosturaTheme
 import com.posturawear.core.ui.pages.CalibrationPage
 import com.posturawear.core.ui.pages.HomePage
@@ -35,7 +36,9 @@ private object Routes {
  */
 @Composable
 fun PosturaApp(engine: PosturaEngine, versionName: String) {
-    PosturaTheme {
+    val language by engine.language.collectAsStateWithLifecycle()
+    LocalizedContent(language) {
+      PosturaTheme {
         AppScaffold(Modifier.background(PosturaTheme.colors.backgroundPrimary)) {
             val data by engine.data.collectAsStateWithLifecycle()
             val session by engine.session.collectAsStateWithLifecycle()
@@ -114,5 +117,6 @@ fun PosturaApp(engine: PosturaEngine, versionName: String) {
                 }
             }
         }
+      }
     }
 }
