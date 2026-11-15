@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Contenido en español (idioma por defecto).
+  Voz: cercana, calmada, motivadora. El tono cambia según el contexto.
+  Nunca se afirma un diagnóstico: se habla de "posible mala postura"
+  y de "recomendación general".
+-->
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Marca -->
+    <string name="app_name">Postura</string>
+    <string name="app_full_name">Entrenador de Postura</string>
+    <string name="disclaimer_short">Prototipo experimental. No es un diagnóstico médico.</string>
+    <string name="disclaimer_long">Prototipo experimental de ergonomía. Ofrece recomendaciones generales y no reemplaza la valoración de un profesional de la salud.</string>
+
+    <!-- Navegación (etiquetas) -->
+    <string name="nav_session">Sesión</string>
+    <string name="nav_stats">Estadísticas</string>
+    <string name="nav_calibration">Calibración</string>
+    <string name="nav_settings">Ajustes</string>
+
+    <!-- Acciones comunes -->
+    <string name="action_start_session">Empezar sesión</string>
+    <string name="action_pause">Pausar</string>
+    <string name="action_resume">Continuar</string>
+    <string name="action_finish">Terminar</string>
+    <string name="action_done">Listo</string>
+    <string name="action_back">Volver</string>
+    <string name="action_retry">Intentar de nuevo</string>
+
+    <!-- Pantalla principal -->
+    <string name="home_ready_title">Listo cuando tú lo estés</string>
+    <string name="home_ready_body">Empieza una sesión y te aviso con una vibración suave.</string>
+    <string name="home_needs_calibration_title">Primero, tu referencia</string>
+    <string name="home_needs_calibration_body">Calibra una vez para que reconozca tu postura.</string>
+    <string name="home_action_calibrate">Calibrar</string>
+    <string name="home_last_session">Última sesión: %1$d%% alineada</string>
+    <string name="home_stats_secondary_empty">Aún sin sesiones</string>
+    <string name="home_calibration_secondary_done">Referencia guardada</string>
+    <string name="home_calibration_secondary_pending">Pendiente</string>
+    <string name="home_settings_secondary">Vibración y sensibilidad</string>
+
+    <!-- Sesión: elegir modo -->
+    <string name="session_mode_title">¿Qué vas a hacer?</string>
+    <string name="session_mode_study">Estudio</string>
+    <string name="session_mode_work">Trabajo</string>
+    <string name="session_mode_study_hint">Lectura, tareas, clases</string>
+    <string name="session_mode_work_hint">Escritorio, computador</string>
+
+    <!-- Sesión: estados de postura -->
+    <string name="posture_aligned">Postura alineada</string>
+    <string name="posture_forward">Posible mala postura</string>
+    <string name="posture_side">Posible mala postura</string>
+    <string name="posture_moving">En movimiento</string>
+    <string name="posture_unknown">Analizando…</string>
+    <string name="posture_paused">Sesión en pausa</string>
+    <string name="posture_forward_detail">Inclinación hacia adelante</string>
+    <string name="posture_side_detail">Inclinación lateral</string>
+    <string name="posture_unusual_detail">Distinta a tu patrón habitual</string>
+
+    <!-- Sesión: indicaciones (tono según contexto) -->
+    <string name="hint_aligned">Vas muy bien, sigue así.</string>
+    <string name="hint_forward">Endereza suave la espalda y relaja los hombros.</string>
+    <string name="hint_side">Vuelve al centro con calma.</string>
+    <string name="hint_moving">Analizo de nuevo cuando te acomodes.</string>
+    <string name="hint_unknown">Dame unos segundos.</string>
+    <string name="hint_paused">Retoma cuando quieras.</string>
+
+    <string name="session_elapsed_label">Tiempo</string>
+    <string name="session_aligned_label">Alineada</string>
+    <plurals name="session_alert_count" tools:ignore="MissingQuantity">
+        <item quantity="one">%1$d aviso</item>
+        <item quantity="other">%1$d avisos</item>
+    </plurals>
+
+    <!-- Origen de la detección -->
+    <string name="source_cloud">IA en la nube</string>
+    <string name="source_local">Detección básica</string>
+    <string name="source_simulated">Datos simulados</string>
+
+    <!-- Resumen de sesión -->
+    <string name="summary_title_great">¡Gran sesión!</string>
+    <string name="summary_title_good">Buen avance</string>
+    <string name="summary_title_keep">Cada sesión cuenta</string>
+    <string name="summary_aligned_percent">%1$d%% del tiempo con postura alineada</string>
+    <string name="summary_duration_label">Duración</string>
+    <string name="summary_alerts_label">Avisos</string>
+    <string name="summary_tip_heading">Recomendación general</string>
+    <string name="summary_tip_loading">Preparando tu resumen…</string>
+    <string name="summary_too_short">Fue una sesión muy corta, así que no la guardé en tus estadísticas.</string>
+
+    <!-- Recomendaciones generales locales (cuando no hay nube) -->
+    <string-array name="local_tips">
+        <item>Cada 30 minutos, levántate y estira el cuello y los hombros.</item>
+        <item>Ubica la pantalla a la altura de los ojos para no inclinar la cabeza.</item>
+        <item>Apoya los pies en el piso y la espalda en el respaldo de la silla.</item>
+        <item>Respira hondo tres veces y suelta la tensión de los hombros.</item>
+    </string-array>
+
+    <!-- Estadísticas -->
+    <string name="stats_period">Últimos 7 días</string>
+    <string name="stats_aligned_average">Promedio alineada</string>
+    <string name="stats_sessions_label">Sesiones</string>
+    <string name="stats_alerts_label">Avisos</string>
+    <string name="stats_time_label">Tiempo total</string>
+    <string name="stats_filter_all">Todo</string>
+    <string name="stats_filter_study">Estudio</string>
+    <string name="stats_filter_work">Trabajo</string>
+    <string name="stats_empty_title">Aún no hay sesiones</string>
+    <string name="stats_empty_body">Completa tu primera sesión y aquí verás tu progreso.</string>
+    <string name="stats_empty_filter_body">No hay sesiones de este tipo en los últimos 7 días.</string>
+    <string name="stats_habit_heading">Tu patrón habitual</string>
+    <string name="stats_habit_learning">Aprendiendo cómo sueles sentarte: %1$d de %2$d min.</string>
+    <string name="stats_habit_ready">Ya conozco tu patrón habitual y te aviso si te alejas de él.</string>
+    <string name="stats_chart_description">Porcentaje de tiempo alineado por día</string>
+    <string-array name="weekday_initials">
+        <item>L</item>
+        <item>M</item>
+        <item>X</item>
+        <item>J</item>
+        <item>V</item>
+        <item>S</item>
+        <item>D</item>
+    </string-array>
+
+    <!-- Calibración -->
+    <string name="calibration_intro_title">Tu postura de referencia</string>
+    <string name="calibration_intro_body">Siéntate con la espalda recta y deja el brazo como sueles trabajar.</string>
+    <string name="calibration_action_start">Calibrar ahora</string>
+    <string name="calibration_action_repeat">Repetir calibración</string>
+    <string name="calibration_running_title">Mantén la posición</string>
+    <string name="calibration_running_remaining">Quedan %1$d s</string>
+    <string name="calibration_success_title">¡Calibración lista!</string>
+    <string name="calibration_success_body">Usaré esta posición como tu referencia.</string>
+    <string name="calibration_status_done">Calibrado el %1$s</string>
+    <string name="calibration_status_pending">Sin calibrar</string>
+
+    <!-- Ajustes -->
+    <string name="settings_section_alerts">Avisos</string>
+    <string name="settings_vibration">Vibración</string>
+    <string name="settings_vibration_hint">Al detectar una posible mala postura</string>
+    <string name="settings_sensitivity">Sensibilidad</string>
+    <string name="settings_sensitivity_low">Baja</string>
+    <string name="settings_sensitivity_medium">Media</string>
+    <string name="settings_sensitivity_high">Alta</string>
+    <string name="settings_alert_delay">Avisar después de</string>
+    <string name="settings_alert_delay_value">%1$d s</string>
+    <string name="settings_section_patterns">Patrones que avisan</string>
+    <string name="settings_pattern_forward">Inclinación hacia adelante</string>
+    <string name="settings_pattern_side">Inclinación lateral</string>
+    <string name="settings_pattern_unusual">Fuera de tu patrón habitual</string>
+    <string name="settings_section_analysis">Análisis</string>
+    <string name="settings_cloud">Análisis en la nube</string>
+    <string name="settings_cloud_hint">Clasifica tu postura con IA</string>
+    <string name="settings_simulator">Simulador de sensores</string>
+    <string name="settings_simulator_hint">Datos de prueba sin hardware</string>
+    <string name="settings_scenario">Escenario simulado</string>
+    <string name="settings_scenario_good">Postura buena</string>
+    <string name="settings_scenario_bad">Postura mala</string>
+    <string name="settings_scenario_mixed">Mixto</string>
+    <string name="settings_section_data">Datos</string>
+    <string name="settings_clear_history">Borrar historial</string>
+    <string name="settings_clear_history_confirm">Toca otra vez para borrar</string>
+    <string name="settings_clear_history_done">Historial borrado</string>
+    <string name="settings_section_about">Acerca de</string>
+    <string name="settings_version">Versión %1$s</string>
+
+    <!--
+      Mensajes de error en 3 partes:
+      _what: qué pasó, en lenguaje del usuario.
+      _why:  por qué, solo si ayuda.
+      _next: qué hacer ahora.
+      Nunca se muestran códigos internos.
+    -->
+    <string name="error_offline_what">No pude conectar con el análisis en la nube.</string>
+    <string name="error_offline_why">Puede que no haya internet en este momento.</string>
+    <string name="error_offline_next">Tu sesión sigue con la detección básica del reloj.</string>
+
+    <string name="error_calibration_moving_what">No pude guardar tu postura de referencia.</string>
+    <string name="error_calibration_moving_why">Noté mucho movimiento mientras calibraba.</string>
+    <string name="error_calibration_moving_next">Quédate quieto unos segundos e inténtalo otra vez.</string>
+
+    <string name="error_sensors_what">No encuentro los sensores de movimiento.</string>
+    <string name="error_sensors_why">Este dispositivo no los comparte con la app.</string>
+    <string name="error_sensors_next">Activa el simulador en Ajustes para seguir probando.</string>
+
+    <string name="error_summary_what">No pude preparar tu recomendación personalizada.</string>
+    <string name="error_summary_next">Te dejo una recomendación general mientras tanto.</string>
+
+    <!-- Accesibilidad -->
+    <string name="a11y_dial">Indicador de alineación: %1$s</string>
+    <string name="a11y_toggle_on">Activado</string>
+    <string name="a11y_toggle_off">Desactivado</string>
+
+    <!-- App de pruebas para celular -->
+    <string name="phone_title">Panel de pruebas</string>
+    <string name="phone_subtitle">Así se ve y se comporta en el reloj.</string>
+    <string name="phone_section_source">Fuente de datos</string>
+    <string name="phone_source_device">Sensores del celular</string>
+    <string name="phone_source_simulator">Simulador</string>
+    <string name="phone_section_scenario">Escenario simulado</string>
+    <string name="phone_section_backend">Análisis en la nube</string>
+    <string name="phone_backend_unknown">Sin comprobar</string>
+    <string name="phone_backend_ok">Conectado</string>
+    <string name="phone_backend_down">Sin conexión</string>
+    <string name="phone_backend_check">Comprobar conexión</string>
+    <string name="phone_test_vibration">Probar vibración</string>
+</resources>
