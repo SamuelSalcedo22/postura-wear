@@ -1,0 +1,4 @@
+scikit-learn>=1.5
+joblib>=1.4
+# Solo para ml/deploy_vertex.py:
+google-cloud-aiplatform>=1.70
