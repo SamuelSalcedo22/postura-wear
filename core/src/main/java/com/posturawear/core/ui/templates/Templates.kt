@@ -24,6 +24,12 @@ import androidx.wear.compose.material3.ScreenScaffold
 import com.posturawear.core.tokens.semantic.SemanticSpacing
 import com.posturawear.core.tokens.theme.PosturaTheme
 
+/** `template.*` — márgenes verticales que respetan la hora y la curva inferior. */
+private object TemplateTokens {
+    val listTop = 30.dp
+    val listBottom = 48.dp
+}
+
 /**
  * Template: lista desplazable. Estructura de casi todas las pantallas:
  * hora arriba, contenido en una sola columna, indicador de scroll al borde.
@@ -34,7 +40,7 @@ fun ListTemplate(
     modifier: Modifier = Modifier,
     content: ScalingLazyListScope.() -> Unit,
 ) {
-    val listState = rememberScalingLazyListState()
+    val listState = rememberScalingLazyListState(initialCenterItemIndex = 0)
     ScreenScaffold(scrollState = listState, modifier = modifier) { scaffoldPadding ->
         val direction = LocalLayoutDirection.current
         ScalingLazyColumn(
@@ -43,9 +49,11 @@ fun ListTemplate(
             contentPadding = PaddingValues(
                 start = scaffoldPadding.calculateStartPadding(direction) + SemanticSpacing.roundSafeHorizontal,
                 end = scaffoldPadding.calculateEndPadding(direction) + SemanticSpacing.roundSafeHorizontal,
-                top = scaffoldPadding.calculateTopPadding(),
-                bottom = scaffoldPadding.calculateBottomPadding(),
+                // La lista empieza justo debajo de la hora y deja aire al final del círculo.
+                top = TemplateTokens.listTop,
+                bottom = TemplateTokens.listBottom,
             ),
+            autoCentering = null,
             verticalArrangement = Arrangement.spacedBy(SemanticSpacing.stack),
             horizontalAlignment = Alignment.CenterHorizontally,
             content = content,
@@ -86,7 +94,7 @@ fun FaceTemplate(
                                 start = SemanticSpacing.section + SemanticSpacing.roundSafeHorizontal,
                                 end = SemanticSpacing.section + SemanticSpacing.roundSafeHorizontal,
                                 top = SemanticSpacing.section,
-                                bottom = 48.dp,
+                                bottom = TemplateTokens.listBottom,
                             ),
                         horizontalAlignment = Alignment.CenterHorizontally,
                         verticalArrangement = Arrangement.spacedBy(SemanticSpacing.stack),
