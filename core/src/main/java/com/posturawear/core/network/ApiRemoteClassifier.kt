@@ -6,7 +6,7 @@ import com.posturawear.core.domain.model.Calibration
 import com.posturawear.core.domain.model.PostureClass
 import com.posturawear.core.domain.model.SensorWindow
 import com.posturawear.core.domain.model.Sensitivity
-import com.posturawear.core.sensors.SyntheticMotion
+import com.posturawear.core.sensors.SensorSource
 
 /** Adapta el [PostureApi] al contrato [RemoteClassifier] del dominio. */
 class ApiRemoteClassifier(private val api: PostureApi) : RemoteClassifier {
@@ -18,7 +18,7 @@ class ApiRemoteClassifier(private val api: PostureApi) : RemoteClassifier {
         val response = api.classify(
             ClassifyRequest(
                 samples = window.samples.map { listOf(it.ax, it.ay, it.az, it.gx, it.gy, it.gz) },
-                sampleRateHz = SyntheticMotion.SAMPLE_RATE_HZ,
+                sampleRateHz = SensorSource.SAMPLE_RATE_HZ,
                 baselinePitch = calibration.baseline.pitchDeg,
                 baselineRoll = calibration.baseline.rollDeg,
                 tiltThreshold = sensitivity.tiltThresholdDeg,

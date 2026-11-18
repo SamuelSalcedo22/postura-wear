@@ -57,6 +57,6 @@ class DeviceSensorSource(context: Context) : SensorSource {
     }.buffer(capacity = 256, onBufferOverflow = BufferOverflow.DROP_OLDEST)
 
     private companion object {
-        const val SAMPLING_PERIOD_US = 1_000_000 / SyntheticMotion.SAMPLE_RATE_HZ
+        const val SAMPLING_PERIOD_US = 1_000_000 / SensorSource.SAMPLE_RATE_HZ
     }
 }
