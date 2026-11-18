@@ -22,7 +22,7 @@ Aporta a los **ODS 3** (Salud y bienestar) y **ODS 8** (Trabajo decente).
 | Sesiones | De estudio o de trabajo, con pausa y resumen al terminar. |
 | Estadísticas | Últimos 7 días, con filtro por tipo de sesión. |
 | Patrón habitual | Aprende cómo sueles sentarte y puede avisar si te alejas de ello. |
-| Ajustes | Sensibilidad, patrones que avisan, análisis en la nube y simulador. |
+| Ajustes | Sensibilidad, patrones que avisan, análisis en la nube, tema claro u oscuro e idioma. |
 
 ## Arquitectura
 

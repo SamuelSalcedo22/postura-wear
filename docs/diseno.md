@@ -112,10 +112,18 @@ y con un **filtro** en Estadísticas (Todo, Estudio, Trabajo).
 - **Color con significado.** Menta = alineada; ámbar = atención amable (nunca rojo
   para la postura); azul = nube e información; violeta = aprendizaje y calibración;
   coral = solo errores y acciones destructivas.
-- **Tema oscuro único** con fondo negro puro, que apaga píxeles en pantallas OLED y
-  ahorra batería. El texto principal sobre negro supera la relación de contraste 15:1
-  y el secundario, 9:1.
-- **Háptica como parte del lenguaje.** Los patrones de vibración también son tokens.
+- **Tema oscuro por defecto** con fondo negro puro, que apaga píxeles en pantallas
+  OLED y ahorra batería. El texto principal sobre negro supera la relación de
+  contraste 15:1 y el secundario, 9:1.
+- **Tema claro opcional** (Ajustes → Apariencia) para leer a plena luz del sol. Es
+  otro juego de tokens semánticos (`LightSemanticColors`) sobre los mismos tokens
+  globales: los componentes no cambian, solo los valores. Los acentos usan los pasos
+  más oscuros de cada familia (por ejemplo `color.mint.800`) para mantener al menos
+  4.5:1 de contraste sobre fondo claro, y cada color conserva su significado.
+- **Háptica como parte del lenguaje.** Los patrones de vibración también son tokens,
+  y cada uno declara su tipo: los avisos de postura van como *notificación*, para
+  que se sientan aunque la persona haya apagado la vibración al tocar; la
+  confirmación breve va como *respuesta táctil* y respeta ese ajuste.
 - **Iconos propios** dibujados con trazos redondeados (`Glyph`).
 
 ### Tokens en tres niveles
@@ -171,7 +179,7 @@ la app del celular (`phone/`) reutiliza exactamente las mismas páginas dentro d
 ## 5. Arquitectura técnica
 
 ```
-sensores (reales o simulador) ──► ventanas de 3 s ──► detector híbrido ──► política de avisos ──► vibración
+acelerómetro y giroscopio ──► ventanas de 3 s ──► detector híbrido ──► política de avisos ──► vibración
                                                          │        ▲
                                                  backend (HTTPS)  └─ respaldo local por umbrales
 ```
@@ -179,7 +187,7 @@ sensores (reales o simulador) ──► ventanas de 3 s ──► detector híbr
 | Capa | Paquete en `core` | Responsabilidad |
 |---|---|---|
 | Dominio | `domain/` | Kotlin puro y probado: características, calibración, detector por umbrales, detector híbrido, patrón habitual, avisos, sesiones, estadísticas |
-| Sensores | `sensors/` | Acelerómetro y giroscopio, simulador y vibración |
+| Sensores | `sensors/` | Acelerómetro y giroscopio, y vibración |
 | Red | `network/` | Cliente HTTP sin claves y adaptador al dominio |
 | Estado | `state/` | `PosturaEngine` orquesta todo y expone `StateFlow`; DataStore guarda la configuración |
 | Interfaz | `ui/`, `tokens/` | Design system y páginas |
