@@ -12,6 +12,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.posturawear.core.R
 import androidx.compose.ui.platform.LocalConfiguration
 import com.posturawear.core.domain.model.AppLanguage
+import com.posturawear.core.domain.model.AppTheme
 import com.posturawear.core.state.BackendStatus
 import com.posturawear.core.state.PosturaEngine
 import com.posturawear.core.tokens.component.Tone
@@ -38,6 +39,16 @@ fun TestPanel(engine: PosturaEngine, modifier: Modifier = Modifier) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(SemanticSpacing.stack),
     ) {
+        SectionLabel(stringResource(R.string.settings_section_appearance))
+        ChoiceGroup(
+            options = listOf(
+                AppTheme.DARK to stringResource(R.string.theme_dark),
+                AppTheme.LIGHT to stringResource(R.string.theme_light),
+            ),
+            selected = settings.theme,
+            onSelect = { theme -> engine.updateSettings { it.copy(theme = theme) } },
+        )
+
         SectionLabel(stringResource(R.string.settings_section_language))
         ChoiceGroup(
             options = listOf(

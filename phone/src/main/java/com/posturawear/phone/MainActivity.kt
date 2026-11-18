@@ -3,6 +3,7 @@ package com.posturawear.phone
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.SystemBarStyle
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -12,10 +13,13 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.posturawear.core.domain.model.AppTheme
 import com.posturawear.core.ui.LocalizedContent
+import com.posturawear.core.ui.semanticColors
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import com.posturawear.core.R
@@ -39,8 +43,19 @@ class MainActivity : ComponentActivity() {
         val version = versionName()
         setContent {
             val language by engine.language.collectAsStateWithLifecycle()
+            val theme by engine.theme.collectAsStateWithLifecycle()
+            // Iconos de la barra de estado legibles sobre el fondo de cada tema.
+            LaunchedEffect(theme) {
+                val transparent = android.graphics.Color.TRANSPARENT
+                val style = if (theme == AppTheme.LIGHT) {
+                    SystemBarStyle.light(transparent, transparent)
+                } else {
+                    SystemBarStyle.dark(transparent)
+                }
+                enableEdgeToEdge(statusBarStyle = style, navigationBarStyle = style)
+            }
             LocalizedContent(language) {
-            PosturaTheme {
+            PosturaTheme(colors = theme.semanticColors()) {
                 Column(
                     modifier = Modifier
                         .fillMaxSize()

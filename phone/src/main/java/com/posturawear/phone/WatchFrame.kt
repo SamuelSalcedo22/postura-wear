@@ -20,6 +20,7 @@ import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.posturawear.core.tokens.global.GlobalColor
+import com.posturawear.core.tokens.theme.PosturaTheme
 
 /**
  * Simula la pantalla redonda del reloj en el celular. Además de recortar en
@@ -63,7 +64,7 @@ fun WatchFrame(
                 }
             }
             CompositionLocalProvider(LocalConfiguration provides watchConfiguration) {
-                Box(Modifier.size(screenSize).clip(CircleShape).background(GlobalColor.Ink900)) {
+                Box(Modifier.size(screenSize).clip(CircleShape).background(PosturaTheme.colors.backgroundPrimary)) {
                     content()
                 }
             }
