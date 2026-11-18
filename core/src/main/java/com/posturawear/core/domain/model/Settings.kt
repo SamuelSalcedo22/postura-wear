@@ -12,6 +12,9 @@ enum class Sensitivity(val tiltThresholdDeg: Float) {
 /** Idioma de la interfaz. [tag] es `null` cuando se sigue el idioma del dispositivo. */
 enum class AppLanguage(val tag: String?) { SYSTEM(null), ES("es"), EN("en") }
 
+/** Apariencia de la interfaz. El oscuro es el predeterminado porque ahorra batería en pantallas OLED. */
+enum class AppTheme { DARK, LIGHT }
+
 /** Configuración personal del usuario. */
 @Serializable
 data class Settings(
@@ -24,6 +27,7 @@ data class Settings(
     val alertOnUnusual: Boolean = false,
     val cloudEnabled: Boolean = true,
     val language: AppLanguage = AppLanguage.SYSTEM,
+    val theme: AppTheme = AppTheme.DARK,
 ) {
     companion object {
         val AlertDelayOptions = listOf(5, 10, 20, 30)

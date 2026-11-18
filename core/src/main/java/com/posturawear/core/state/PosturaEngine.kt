@@ -7,6 +7,7 @@ import com.posturawear.core.domain.HabitModel
 import com.posturawear.core.domain.HybridPostureDetector
 import com.posturawear.core.domain.SessionTracker
 import com.posturawear.core.domain.model.AppLanguage
+import com.posturawear.core.domain.model.AppTheme
 import com.posturawear.core.domain.model.PostureClass
 import com.posturawear.core.domain.model.SensorSample
 import com.posturawear.core.domain.model.SensorWindow
@@ -54,6 +55,10 @@ class PosturaEngine(
     /** Idioma elegido; cambia la interfaz al instante, sin reiniciar la app. */
     val language: StateFlow<AppLanguage> =
         store.data.map { it.settings.language }.stateIn(scope, SharingStarted.Eagerly, AppLanguage.SYSTEM)
+
+    /** Tema elegido; como el idioma, se aplica al instante. */
+    val theme: StateFlow<AppTheme> =
+        store.data.map { it.settings.theme }.stateIn(scope, SharingStarted.Eagerly, AppTheme.DARK)
 
     private val _session = MutableStateFlow<SessionState?>(null)
     val session: StateFlow<SessionState?> = _session.asStateFlow()
