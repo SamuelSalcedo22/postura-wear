@@ -38,7 +38,7 @@ data class SemanticColors(
     val statusErrorContainer: Color,
 )
 
-/** Único tema: oscuro. El fondo negro puro apaga píxeles en OLED y ahorra batería. */
+/** Tema oscuro (predeterminado). El fondo negro puro apaga píxeles en OLED y ahorra batería. */
 val DarkSemanticColors = SemanticColors(
     backgroundPrimary = GlobalColor.Ink900,
     backgroundSurface = GlobalColor.Ink700,
@@ -61,4 +61,33 @@ val DarkSemanticColors = SemanticColors(
     statusNeutral = GlobalColor.Blue300,
     statusError = GlobalColor.Coral500,
     statusErrorContainer = GlobalColor.Coral900,
+)
+
+/**
+ * Tema claro, para leer a plena luz del sol. Los acentos usan los pasos más
+ * oscuros de cada familia para mantener un contraste de al menos 4.5:1 sobre
+ * fondos claros; el significado de cada color no cambia entre temas.
+ */
+val LightSemanticColors = SemanticColors(
+    backgroundPrimary = GlobalColor.Ink50,
+    backgroundSurface = GlobalColor.Ink0,
+    backgroundRaised = GlobalColor.Ink100,
+    contentPrimary = GlobalColor.Ink800,
+    contentSecondary = GlobalColor.Ink500,
+    contentMuted = GlobalColor.Ink450,
+    contentOnAccent = GlobalColor.Ink0,
+    borderSubtle = GlobalColor.Ink150,
+    accentBrand = GlobalColor.Mint800,
+    accentBrandContainer = GlobalColor.Mint100,
+    accentInfo = GlobalColor.Blue700,
+    accentInfoContainer = GlobalColor.Blue100,
+    accentLearning = GlobalColor.Violet700,
+    accentLearningContainer = GlobalColor.Violet100,
+    statusAligned = GlobalColor.Mint800,
+    statusAlignedContainer = GlobalColor.Mint100,
+    statusAttention = GlobalColor.Amber800,
+    statusAttentionContainer = GlobalColor.Amber100,
+    statusNeutral = GlobalColor.Blue700,
+    statusError = GlobalColor.Coral700,
+    statusErrorContainer = GlobalColor.Coral100,
 )
