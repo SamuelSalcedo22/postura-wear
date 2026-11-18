@@ -213,4 +213,10 @@
     <string name="settings_language_system">El del dispositivo</string>
     <string name="language_es" translatable="false">Español</string>
     <string name="language_en" translatable="false">English</string>
+
+    <!-- Apariencia -->
+    <string name="settings_section_appearance">Apariencia</string>
+    <string name="theme_dark">Oscuro</string>
+    <string name="theme_light">Claro</string>
+    <string name="settings_theme_hint">El tema oscuro ahorra batería en el reloj.</string>
 </resources>

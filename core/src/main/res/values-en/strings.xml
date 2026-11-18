@@ -197,4 +197,10 @@
     <!-- App language -->
     <string name="settings_section_language">Language</string>
     <string name="settings_language_system">Device language</string>
+
+    <!-- Appearance -->
+    <string name="settings_section_appearance">Appearance</string>
+    <string name="theme_dark">Dark</string>
+    <string name="theme_light">Light</string>
+    <string name="settings_theme_hint">Dark mode saves battery on the watch.</string>
 </resources>

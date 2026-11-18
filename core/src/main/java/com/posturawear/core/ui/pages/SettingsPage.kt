@@ -12,6 +12,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import com.posturawear.core.R
 import com.posturawear.core.domain.model.AppLanguage
+import com.posturawear.core.domain.model.AppTheme
 import com.posturawear.core.domain.model.Sensitivity
 import com.posturawear.core.domain.model.Settings
 import com.posturawear.core.tokens.semantic.SemanticSpacing
@@ -125,6 +126,20 @@ fun SettingsPage(
                 onCheckedChange = { on -> onChange { it.copy(cloudEnabled = on) } },
             )
         }
+
+        // --- Apariencia ---
+        item { SectionLabel(stringResource(R.string.settings_section_appearance)) }
+        item {
+            ChoiceGroup(
+                options = listOf(
+                    AppTheme.DARK to stringResource(R.string.theme_dark),
+                    AppTheme.LIGHT to stringResource(R.string.theme_light),
+                ),
+                selected = settings.theme,
+                onSelect = { value -> onChange { it.copy(theme = value) } },
+            )
+        }
+        item { BodyText(stringResource(R.string.settings_theme_hint), color = PosturaTheme.colors.contentMuted) }
 
         // --- Idioma ---
         item { SectionLabel(stringResource(R.string.settings_section_language)) }
