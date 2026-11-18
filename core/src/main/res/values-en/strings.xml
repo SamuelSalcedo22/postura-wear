@@ -70,7 +70,6 @@
     <!-- Detection source -->
     <string name="source_cloud">Cloud AI</string>
     <string name="source_local">Basic detection</string>
-    <string name="source_simulated">Simulated data</string>
 
     <!-- Session summary -->
     <string name="summary_title_great">Great session!</string>
@@ -145,12 +144,6 @@
     <string name="settings_section_analysis">Analysis</string>
     <string name="settings_cloud">Cloud analysis</string>
     <string name="settings_cloud_hint">Classifies your posture with AI</string>
-    <string name="settings_simulator">Sensor simulator</string>
-    <string name="settings_simulator_hint">Test data without hardware</string>
-    <string name="settings_scenario">Simulated scenario</string>
-    <string name="settings_scenario_good">Good posture</string>
-    <string name="settings_scenario_bad">Poor posture</string>
-    <string name="settings_scenario_mixed">Mixed</string>
     <string name="settings_section_data">Data</string>
     <string name="settings_clear_history">Clear history</string>
     <string name="settings_clear_history_confirm">Tap again to clear</string>
@@ -169,7 +162,7 @@
 
     <string name="error_sensors_what">I can\'t find the motion sensors.</string>
     <string name="error_sensors_why">This device doesn\'t share them with the app.</string>
-    <string name="error_sensors_next">Turn on the simulator in Settings to keep testing.</string>
+    <string name="error_sensors_next">Try the app on a watch or phone with motion sensors.</string>
 
     <string name="error_summary_what">I couldn\'t prepare your personalized recommendation.</string>
     <string name="error_summary_next">Here\'s a general recommendation in the meantime.</string>
@@ -182,10 +175,6 @@
     <!-- Phone test app -->
     <string name="phone_title">Test panel</string>
     <string name="phone_subtitle">This is how it looks and behaves on the watch.</string>
-    <string name="phone_section_source">Data source</string>
-    <string name="phone_source_device">Phone sensors</string>
-    <string name="phone_source_simulator">Simulator</string>
-    <string name="phone_section_scenario">Simulated scenario</string>
     <string name="phone_section_backend">Cloud analysis</string>
     <string name="phone_backend_unknown">Not checked</string>
     <string name="phone_backend_ok">Connected</string>
