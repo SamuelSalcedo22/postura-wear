@@ -29,7 +29,7 @@ import com.posturawear.core.ui.atoms.TitleText
 
 /**
  * App de pruebas para celular: muestra la interfaz del reloj dentro de un marco
- * redondo y, debajo, un panel para elegir la fuente de datos y el escenario.
+ * redondo y, debajo, un panel con el idioma, el tema, la conexión y la vibración.
  */
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

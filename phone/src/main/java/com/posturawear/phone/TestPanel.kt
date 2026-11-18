@@ -12,7 +12,6 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.posturawear.core.R
 import androidx.compose.ui.platform.LocalConfiguration
 import com.posturawear.core.domain.model.AppLanguage
-import com.posturawear.core.domain.model.SimScenario
 import com.posturawear.core.state.BackendStatus
 import com.posturawear.core.state.PosturaEngine
 import com.posturawear.core.tokens.component.Tone
@@ -39,30 +38,6 @@ fun TestPanel(engine: PosturaEngine, modifier: Modifier = Modifier) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(SemanticSpacing.stack),
     ) {
-        SectionLabel(stringResource(R.string.phone_section_source))
-        ChoiceGroup(
-            options = listOf(
-                false to stringResource(R.string.phone_source_device),
-                true to stringResource(R.string.phone_source_simulator),
-            ),
-            selected = settings.simulatorEnabled,
-            onSelect = { simulated -> engine.updateSettings { it.copy(simulatorEnabled = simulated) } },
-        )
-
-        if (settings.simulatorEnabled) {
-            SectionLabel(stringResource(R.string.phone_section_scenario))
-            ChoiceGroup(
-                options = listOf(
-                    SimScenario.GOOD to stringResource(R.string.settings_scenario_good),
-                    SimScenario.BAD to stringResource(R.string.settings_scenario_bad),
-                    SimScenario.MIXED to stringResource(R.string.settings_scenario_mixed),
-                ),
-                selected = settings.scenario,
-                onSelect = { scenario -> engine.updateSettings { it.copy(scenario = scenario) } },
-                stacked = true,
-            )
-        }
-
         SectionLabel(stringResource(R.string.settings_section_language))
         ChoiceGroup(
             options = listOf(
