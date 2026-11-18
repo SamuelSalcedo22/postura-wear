@@ -98,7 +98,6 @@ private fun LiveSession(
     val onToggle = if (session.paused) onResume else onPause
 
     val (badgeText, badgeTone) = when {
-        session.simulated -> stringResource(R.string.source_simulated) to Tone.Learning
         session.notice == SessionNotice.OFFLINE -> stringResource(R.string.source_local) to Tone.Attention
         session.detection?.source == DetectionSource.CLOUD -> stringResource(R.string.source_cloud) to Tone.Info
         session.detection != null -> stringResource(R.string.source_local) to Tone.Neutral

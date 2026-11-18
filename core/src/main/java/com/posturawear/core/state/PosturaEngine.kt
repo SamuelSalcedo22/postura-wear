@@ -18,8 +18,6 @@ import com.posturawear.core.network.PostureApi
 import com.posturawear.core.network.SummaryRequest
 import com.posturawear.core.sensors.Haptics
 import com.posturawear.core.sensors.SensorSource
-import com.posturawear.core.sensors.SimPose
-import com.posturawear.core.sensors.SimulatedSensorSource
 import com.posturawear.core.sensors.windowed
 import com.posturawear.core.tokens.semantic.SemanticHaptics
 import kotlinx.coroutines.CoroutineScope
@@ -71,8 +69,6 @@ class PosturaEngine(
 
     private val settings: Settings get() = data.value?.settings ?: Settings()
 
-    private var forcedPose: SimPose? = null
-    private val simulator = SimulatedSensorSource(scenario = { settings.scenario }, forcedPose = { forcedPose })
     private val detector = HybridPostureDetector(ApiRemoteClassifier(api), clockMs = clockMs)
     private val alertPolicy = AlertPolicy()
 
@@ -83,8 +79,6 @@ class PosturaEngine(
     private var analysisJob: Job? = null
     private var tickerJob: Job? = null
     private var calibrationJob: Job? = null
-
-    private fun source(): SensorSource = if (settings.simulatorEnabled) simulator else deviceSensors
 
     // ---------- Configuración ----------
 
@@ -107,7 +101,7 @@ class PosturaEngine(
 
     fun startCalibration() {
         if (calibrationJob?.isActive == true) return
-        val source = source()
+        val source = deviceSensors
         if (!source.isAvailable) {
             _calibration.value = CalibrationState.Failed(CalibrationState.Reason.SENSORS_MISSING)
             return
@@ -115,7 +109,6 @@ class PosturaEngine(
         calibrationJob = scope.launch {
             val total = Calibrator.DURATION_SECONDS
             val samples = ArrayList<SensorSample>()
-            forcedPose = SimPose.GOOD
             val collector = launch { source.samples().collect { samples.add(it) } }
             try {
                 for (remaining in total downTo 1) {
@@ -124,7 +117,6 @@ class PosturaEngine(
                 }
             } finally {
                 collector.cancel()
-                forcedPose = null
             }
             when (val result = Calibrator.calibrate(SensorWindow(samples.toList()), clockMs())) {
                 is CalibrationResult.Success -> {
@@ -157,11 +149,9 @@ class PosturaEngine(
         tracker = SessionTracker(mode, clockMs())
         habit = data.value?.habit
         alertPolicy.reset()
-        val source = source()
         _session.value = SessionState(
             mode = mode,
-            simulated = settings.simulatorEnabled,
-            notice = if (source.isAvailable) null else SessionNotice.SENSORS_MISSING,
+            notice = if (deviceSensors.isAvailable) null else SessionNotice.SENSORS_MISSING,
         )
         haptics.play(SemanticHaptics.confirm)
         startJobs()
@@ -229,7 +219,7 @@ class PosturaEngine(
     }
 
     private fun startJobs() {
-        val source = source()
+        val source = deviceSensors
         tickerJob = scope.launch {
             while (isActive) {
                 delay(TICK_MS)

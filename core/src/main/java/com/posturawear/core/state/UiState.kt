@@ -15,7 +15,6 @@ data class SessionState(
     val alignedPercent: Int? = null,
     val alerts: Int = 0,
     val detection: Detection? = null,
-    val simulated: Boolean = false,
     val notice: SessionNotice? = null,
 )
 

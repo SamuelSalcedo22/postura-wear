@@ -9,9 +9,6 @@ enum class Sensitivity(val tiltThresholdDeg: Float) {
     HIGH(12f),
 }
 
-/** Escenarios del simulador de sensores para probar sin hardware. */
-enum class SimScenario { GOOD, BAD, MIXED }
-
 /** Idioma de la interfaz. [tag] es `null` cuando se sigue el idioma del dispositivo. */
 enum class AppLanguage(val tag: String?) { SYSTEM(null), ES("es"), EN("en") }
 
@@ -26,8 +23,6 @@ data class Settings(
     val alertOnSide: Boolean = true,
     val alertOnUnusual: Boolean = false,
     val cloudEnabled: Boolean = true,
-    val simulatorEnabled: Boolean = false,
-    val scenario: SimScenario = SimScenario.MIXED,
     val language: AppLanguage = AppLanguage.SYSTEM,
 ) {
     companion object {

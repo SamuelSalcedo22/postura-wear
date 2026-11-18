@@ -2,12 +2,11 @@ package com.posturawear.core.sensors
 
 import com.posturawear.core.domain.model.SensorSample
 import com.posturawear.core.domain.model.SensorWindow
-import com.posturawear.core.domain.model.SimScenario
 import kotlin.math.cos
 import kotlin.math.sin
 import kotlin.random.Random
 
-/** Postura que el simulador "actúa" en un instante. */
+/** Postura de referencia para generar lecturas de prueba. */
 enum class SimPose(val pitchDeg: Float, val rollDeg: Float, val gyro: Float, val accelNoise: Float) {
     GOOD(pitchDeg = 2f, rollDeg = 1f, gyro = 0.03f, accelNoise = 0.08f),
     FORWARD(pitchDeg = 34f, rollDeg = 3f, gyro = 0.04f, accelNoise = 0.1f),
@@ -16,35 +15,13 @@ enum class SimPose(val pitchDeg: Float, val rollDeg: Float, val gyro: Float, val
 }
 
 /**
- * Genera lecturas sintéticas de acelerómetro y giroscopio. Kotlin puro: lo usan
- * el simulador de la app y las pruebas unitarias. `ml/generate_synthetic.py`
- * sigue el mismo modelo físico para entrenar el clasificador.
+ * Genera lecturas sintéticas de acelerómetro y giroscopio para las pruebas
+ * unitarias: así se comprueba el detector con posturas conocidas sin hardware.
+ * `ml/generate_synthetic.py` sigue el mismo modelo físico.
  */
 object SyntheticMotion {
     const val GRAVITY = 9.81f
-    const val SAMPLE_RATE_HZ = 25
-
-    /** Guion del escenario mixto: (postura, segundos). Se repite en bucle. */
-    private val mixedScript = listOf(
-        SimPose.GOOD to 18,
-        SimPose.FORWARD to 16,
-        SimPose.GOOD to 12,
-        SimPose.MOVING to 5,
-        SimPose.SIDE to 14,
-        SimPose.GOOD to 10,
-    )
-    private val mixedTotalSeconds = mixedScript.sumOf { it.second }
-
-    fun poseAt(scenario: SimScenario, elapsedMs: Long): SimPose = when (scenario) {
-        SimScenario.GOOD -> SimPose.GOOD
-        SimScenario.BAD -> SimPose.FORWARD
-        SimScenario.MIXED -> {
-            var second = (elapsedMs / 1000) % mixedTotalSeconds
-            mixedScript.first { (_, seconds) ->
-                if (second < seconds) true else { second -= seconds; false }
-            }.first
-        }
-    }
+    const val SAMPLE_RATE_HZ = SensorSource.SAMPLE_RATE_HZ
 
     fun sample(pose: SimPose, timestampMs: Long, random: Random): SensorSample {
         val pitch = Math.toRadians(pose.pitchDeg.toDouble())

@@ -37,7 +37,7 @@ object ToggleTokens {
     val thumbOff: Color @Composable @ReadOnlyComposable get() = PosturaTheme.colors.contentSecondary
 }
 
-/** `choice.*` — selector segmentado (sensibilidad, escenario, filtro). */
+/** `choice.*` — selector segmentado (sensibilidad, idioma, tema, filtro). */
 object ChoiceTokens {
     val minHeight = 40.dp
     val shape = SemanticShape.tag

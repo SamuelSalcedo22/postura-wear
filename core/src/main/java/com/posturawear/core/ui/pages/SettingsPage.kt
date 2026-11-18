@@ -14,7 +14,6 @@ import com.posturawear.core.R
 import com.posturawear.core.domain.model.AppLanguage
 import com.posturawear.core.domain.model.Sensitivity
 import com.posturawear.core.domain.model.Settings
-import com.posturawear.core.domain.model.SimScenario
 import com.posturawear.core.tokens.semantic.SemanticSpacing
 import com.posturawear.core.tokens.theme.PosturaTheme
 import com.posturawear.core.ui.atoms.BodyText
@@ -125,29 +124,6 @@ fun SettingsPage(
                 checked = settings.cloudEnabled,
                 onCheckedChange = { on -> onChange { it.copy(cloudEnabled = on) } },
             )
-        }
-        item {
-            ToggleRow(
-                label = stringResource(R.string.settings_simulator),
-                secondary = stringResource(R.string.settings_simulator_hint),
-                checked = settings.simulatorEnabled,
-                onCheckedChange = { on -> onChange { it.copy(simulatorEnabled = on) } },
-            )
-        }
-        if (settings.simulatorEnabled) {
-            item { FieldLabel(stringResource(R.string.settings_scenario)) }
-            item {
-                ChoiceGroup(
-                    options = listOf(
-                        SimScenario.GOOD to stringResource(R.string.settings_scenario_good),
-                        SimScenario.BAD to stringResource(R.string.settings_scenario_bad),
-                        SimScenario.MIXED to stringResource(R.string.settings_scenario_mixed),
-                    ),
-                    selected = settings.scenario,
-                    onSelect = { value -> onChange { it.copy(scenario = value) } },
-                    stacked = true,
-                )
-            }
         }
 
         // --- Idioma ---
