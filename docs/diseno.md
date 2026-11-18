@@ -115,14 +115,17 @@ y con un **filtro** en Estadísticas (Todo, Estudio, Trabajo).
 - **Tema oscuro por defecto** con fondo negro puro, que apaga píxeles en pantallas
   OLED y ahorra batería. El texto principal sobre negro supera la relación de
   contraste 15:1 y el secundario, 9:1.
-- **Tema claro opcional** (Ajustes → Apariencia) para leer a plena luz del sol. Es
+- **Tema claro opcional** (Ajustes → Apariencia) en tonos beige (`color.sand.*`),
+  para leer a plena luz del sol sin el brillo de un blanco puro. Es
   otro juego de tokens semánticos (`LightSemanticColors`) sobre los mismos tokens
   globales: los componentes no cambian, solo los valores. Los acentos usan los pasos
   más oscuros de cada familia (por ejemplo `color.mint.800`) para mantener al menos
   4.5:1 de contraste sobre fondo claro, y cada color conserva su significado.
 - **Háptica como parte del lenguaje.** Los patrones de vibración también son tokens,
-  y cada uno declara su tipo: los avisos de postura van como *notificación*, para
-  que se sientan aunque la persona haya apagado la vibración al tocar; la
+  y cada uno declara su tipo: los avisos de postura van como *alarma*, para que se
+  sientan aunque la persona haya apagado la vibración al tocar y sin depender del
+  permiso de notificaciones (se probó en un Xiaomi con HyperOS, que descarta los
+  otros tipos en esos casos); la
   confirmación breve va como *respuesta táctil* y respeta ese ajuste.
 - **Iconos propios** dibujados con trazos redondeados (`Glyph`).
 
