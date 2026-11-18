@@ -93,8 +93,9 @@ Abre la carpeta en Android Studio y espera la sincronización de Gradle.
 2. Elige la configuración **wear** y pulsa **Run**.
 3. El emulador llega al backend de tu computador en `http://10.0.2.2:8080`
    (valor por defecto, no hay que cambiar nada).
-4. El emulador no tiene sensores útiles: en **Ajustes → Simulador de sensores**
-   activa el simulador y elige un escenario.
+4. Para "inclinar" el reloj virtual abre los controles extendidos del emulador
+   (botón **⋯**) → **Virtual sensors** → **Device Pose** y gira el dispositivo.
+   Calibra primero en la posición recta y luego inclínalo durante una sesión.
 
 ### b) Celular Android por ADB
 
@@ -112,9 +113,9 @@ adb reverse tcp:8080 tcp:8080
 gradlew.bat :phone:installDebug
 ```
 
-La app muestra la interfaz del reloj dentro de un marco redondo y, debajo, un panel
-para alternar entre los sensores del celular y el simulador, cambiar el escenario,
-comprobar la conexión con el backend y probar la vibración. Para volver de una
+La app muestra la interfaz del reloj dentro de un marco redondo y usa los sensores
+reales del celular. Debajo hay un panel para cambiar el idioma y el tema, comprobar
+la conexión con el backend y probar la vibración. Para volver de una
 pantalla se usa el gesto o botón **atrás** del sistema.
 
 ### c) Reloj real
