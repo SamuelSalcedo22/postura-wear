@@ -14,13 +14,20 @@ object GlobalColor {
     val Ink700 = Color(0xFF131921)
     val Ink600 = Color(0xFF1D2530)
     val Ink500 = Color(0xFF2C3644)
-    val Ink450 = Color(0xFF5E6978)
     val Ink400 = Color(0xFF7F8A99)
     val Ink200 = Color(0xFFB4BECB)
-    val Ink150 = Color(0xFFC9D1DB)
-    val Ink100 = Color(0xFFE6EBF1)
     val Ink50 = Color(0xFFF3F6F9)
     val Ink0 = Color(0xFFFFFFFF)
+
+    // color.sand.* — neutros cálidos (beige) del tema claro; cansan menos la vista
+    // que el blanco frío.
+    val Sand900 = Color(0xFF2B2620)
+    val Sand700 = Color(0xFF4F463B)
+    val Sand600 = Color(0xFF6E6455)
+    val Sand200 = Color(0xFFD8CCB6)
+    val Sand100 = Color(0xFFE9E0CF)
+    val Sand50 = Color(0xFFF3ECDF)
+    val Sand0 = Color(0xFFFBF7EF)
 
     // color.mint.* — alineación, progreso.
     val Mint100 = Color(0xFFD5F7EC)

@@ -64,19 +64,20 @@ val DarkSemanticColors = SemanticColors(
 )
 
 /**
- * Tema claro, para leer a plena luz del sol. Los acentos usan los pasos más
- * oscuros de cada familia para mantener un contraste de al menos 4.5:1 sobre
- * fondos claros; el significado de cada color no cambia entre temas.
+ * Tema claro en tonos beige, para leer a plena luz del sol sin el brillo de un
+ * blanco puro. Los acentos usan los pasos más oscuros de cada familia para
+ * mantener un contraste de al menos 4.5:1; el significado de cada color no cambia
+ * entre temas.
  */
 val LightSemanticColors = SemanticColors(
-    backgroundPrimary = GlobalColor.Ink50,
-    backgroundSurface = GlobalColor.Ink0,
-    backgroundRaised = GlobalColor.Ink100,
-    contentPrimary = GlobalColor.Ink800,
-    contentSecondary = GlobalColor.Ink500,
-    contentMuted = GlobalColor.Ink450,
+    backgroundPrimary = GlobalColor.Sand50,
+    backgroundSurface = GlobalColor.Sand0,
+    backgroundRaised = GlobalColor.Sand100,
+    contentPrimary = GlobalColor.Sand900,
+    contentSecondary = GlobalColor.Sand700,
+    contentMuted = GlobalColor.Sand600,
     contentOnAccent = GlobalColor.Ink0,
-    borderSubtle = GlobalColor.Ink150,
+    borderSubtle = GlobalColor.Sand200,
     accentBrand = GlobalColor.Mint800,
     accentBrandContainer = GlobalColor.Mint100,
     accentInfo = GlobalColor.Blue700,
