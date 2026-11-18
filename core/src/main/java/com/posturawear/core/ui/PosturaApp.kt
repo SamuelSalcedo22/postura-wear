@@ -15,6 +15,7 @@ import androidx.wear.compose.navigation.rememberSwipeDismissableNavController
 import com.posturawear.core.state.PosturaEngine
 import com.posturawear.core.domain.model.AppLanguage
 import com.posturawear.core.tokens.theme.PosturaTheme
+import com.posturawear.core.ui.atoms.ClockText
 import com.posturawear.core.ui.pages.CalibrationPage
 import com.posturawear.core.ui.pages.HomePage
 import com.posturawear.core.ui.pages.SessionPage
@@ -37,9 +38,10 @@ private object Routes {
 @Composable
 fun PosturaApp(engine: PosturaEngine, versionName: String) {
     val language by engine.language.collectAsStateWithLifecycle()
+    val theme by engine.theme.collectAsStateWithLifecycle()
     LocalizedContent(language) {
-      PosturaTheme {
-        AppScaffold(Modifier.background(PosturaTheme.colors.backgroundPrimary)) {
+      PosturaTheme(colors = theme.semanticColors()) {
+        AppScaffold(Modifier.background(PosturaTheme.colors.backgroundPrimary), timeText = { ClockText() }) {
             val data by engine.data.collectAsStateWithLifecycle()
             val session by engine.session.collectAsStateWithLifecycle()
             val summary by engine.summary.collectAsStateWithLifecycle()
