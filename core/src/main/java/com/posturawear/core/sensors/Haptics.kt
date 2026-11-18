@@ -30,19 +30,21 @@ class DeviceHaptics(context: Context) : Haptics {
         } else {
             VibrationEffect.createWaveform(pattern.timings, -1)
         }
-        // Sin un tipo declarado, Android trata la vibración como "desconocida" y la
-        // descarta si el usuario apagó la respuesta táctil (pasa en muchos Xiaomi).
-        // Los avisos de postura se declaran como notificación para que siempre se sientan.
+        // El tipo decide si Android deja pasar la vibración:
+        // - Sin tipo (o táctil) se descarta si el usuario apagó la respuesta táctil.
+        // - Como notificación se cancela si la app no tiene permiso de notificaciones.
+        // Los avisos de postura se declaran como alarma: la persona los activó a
+        // propósito para una sesión, y así se sienten sin depender de esos ajustes.
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             val usage = when (pattern.usage) {
                 HapticUsage.Feedback -> VibrationAttributes.USAGE_TOUCH
-                HapticUsage.Alert -> VibrationAttributes.USAGE_NOTIFICATION
+                HapticUsage.Alert -> VibrationAttributes.USAGE_ALARM
             }
             v.vibrate(effect, VibrationAttributes.createForUsage(usage))
         } else {
             val usage = when (pattern.usage) {
                 HapticUsage.Feedback -> AudioAttributes.USAGE_ASSISTANCE_SONIFICATION
-                HapticUsage.Alert -> AudioAttributes.USAGE_NOTIFICATION
+                HapticUsage.Alert -> AudioAttributes.USAGE_ALARM
             }
             val attributes = AudioAttributes.Builder()
                 .setUsage(usage)

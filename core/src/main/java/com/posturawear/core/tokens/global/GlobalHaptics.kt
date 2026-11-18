@@ -3,7 +3,7 @@ package com.posturawear.core.tokens.global
 /**
  * Qué tipo de vibración es para el sistema. Importa porque Android permite
  * apagar cada tipo por separado: mucha gente apaga la vibración al tocar
- * (respuesta táctil) pero deja la de notificaciones.
+ * (respuesta táctil) pero deja la de las alarmas.
  */
 enum class HapticUsage {
     /** Respuesta a un toque. Respeta el ajuste "vibrar al tocar" del sistema. */
