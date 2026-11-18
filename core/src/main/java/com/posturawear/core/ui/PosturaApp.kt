@@ -48,7 +48,7 @@ fun PosturaApp(engine: PosturaEngine, versionName: String) {
             val calibrationState by engine.calibration.collectAsStateWithLifecycle()
 
             // Mientras se lee lo guardado solo se muestra el fondo: dura un instante.
-            val loaded = data ?: run {
+            if (data == null) {
                 Box(Modifier.fillMaxSize().background(PosturaTheme.colors.backgroundPrimary))
                 return@AppScaffold
             }
@@ -59,8 +59,12 @@ fun PosturaApp(engine: PosturaEngine, versionName: String) {
                 nav.popBackStack(Routes.HOME, inclusive = false)
             }
 
+            // Cada destino lee `data` dentro de su propio bloque: así se redibuja cuando
+            // cambia un ajuste. Una copia tomada aquí afuera quedaría congelada en la
+            // pantalla abierta hasta salir y volver a entrar.
             SwipeDismissableNavHost(navController = nav, startDestination = Routes.HOME) {
                 composable(Routes.HOME) {
+                    val loaded = data ?: return@composable
                     HomePage(
                         data = loaded,
                         sessionRunning = session != null,
@@ -89,6 +93,7 @@ fun PosturaApp(engine: PosturaEngine, versionName: String) {
                     )
                 }
                 composable(Routes.STATS) {
+                    val loaded = data ?: return@composable
                     StatsPage(
                         history = loaded.history,
                         habit = loaded.habit,
@@ -100,6 +105,7 @@ fun PosturaApp(engine: PosturaEngine, versionName: String) {
                     )
                 }
                 composable(Routes.CALIBRATION) {
+                    val loaded = data ?: return@composable
                     DisposableEffect(Unit) { onDispose { engine.resetCalibrationState() } }
                     CalibrationPage(
                         calibration = loaded.calibration,
@@ -110,6 +116,7 @@ fun PosturaApp(engine: PosturaEngine, versionName: String) {
                     )
                 }
                 composable(Routes.SETTINGS) {
+                    val loaded = data ?: return@composable
                     SettingsPage(
                         settings = loaded.settings,
                         versionName = versionName,
